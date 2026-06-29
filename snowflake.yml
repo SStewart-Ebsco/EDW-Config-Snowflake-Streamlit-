@@ -24,3 +24,6 @@ entities:
       - app_pages/cost_center_departments.py
       - app_pages/dso_analysis.py
       - app_pages/sap_user_mapping.py
+    sharing:
+      - role: EDW_EI_CONFIG_ADMIN
+        with_grant_option: false

@@ -185,8 +185,8 @@ with tab_add:
 
     if st.button("Add Mapping", type="primary"):
         effective_max = new_max if new_max else new_min
-        if not all([new_investment, new_profit_center, new_min]):
-            st.error("Investment, Profit Center, and GL Min are required.")
+        if not all([new_investment, new_min]):
+            st.error("Investment and GL Min are required.")
         elif effective_max < new_min:
             st.error("GL Max cannot be less than GL Min.")
         else:
@@ -226,7 +226,7 @@ with tab_bulk:
     if uploaded_file is not None:
         try:
             upload_df = pd.read_csv(uploaded_file, dtype=str).fillna("")
-            required_cols = {"Investment", "Profit Center", "GL Min"}
+            required_cols = {"Investment", "GL Min"}
             all_cols = {"Investment", "Profit Center", "Is Exclusion", "GL Min", "GL Max"}
             missing_cols = required_cols - set(upload_df.columns)
             if missing_cols:
