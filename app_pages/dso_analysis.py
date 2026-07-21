@@ -1,3 +1,5 @@
+# DSO Analysis admin page with event-sourced audit trail
+# Co-authored with CoCo
 import streamlit as st
 import pandas as pd
 import json
@@ -39,8 +41,8 @@ def write_events(events: list[dict]):
                 CURRENT_TIMESTAMP()
         """, params=[payload]).collect()
 
-
-master_df = load_master_data()
+with st.spinner("Loading data..."):
+    master_df = load_master_data()
 
 tab_edit, tab_add, tab_bulk = st.tabs(["Edit Existing", "Add New", "Bulk Upload"])
 

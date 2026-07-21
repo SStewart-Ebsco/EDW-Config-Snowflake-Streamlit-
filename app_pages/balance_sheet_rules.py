@@ -1,3 +1,5 @@
+# Balance Sheet Rules admin page with event-sourced audit trail
+# Co-authored with CoCo
 import streamlit as st
 import pandas as pd
 import json
@@ -44,7 +46,8 @@ def find_duplicate_code(df, code, exclude_id=None):
         dupes = dupes[dupes["ID"] != exclude_id]
     return dupes
 
-master_df = load_master_data()
+with st.spinner("Loading data..."):
+    master_df = load_master_data()
 
 # tab_edit, tab_add, tab_audit = st.tabs(["Edit Rules", "Add Rule", "Audit Trail"])
 tab_edit, tab_add, tab_bulk = st.tabs(["Edit Rules", "Add Rule", "Bulk Upload"])

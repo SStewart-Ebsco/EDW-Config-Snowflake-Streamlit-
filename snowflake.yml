@@ -21,7 +21,7 @@ entities:
       - app_pages/investment_mapping.py
       - app_pages/account_exceptions.py
       - app_pages/business_unit_sort_order.py
-      - app_pages/cost_center_departments.py
+      - app_pages/cost_center_department.py
       - app_pages/dso_analysis.py
       - app_pages/sap_user_mapping.py
     sharing:

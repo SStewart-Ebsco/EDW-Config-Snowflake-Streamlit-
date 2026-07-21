@@ -50,7 +50,8 @@ def write_events(events: list[dict]):
         """, params=[payload]).collect()
 
 
-master_df = load_master_data()
+with st.spinner("Loading data..."):
+    master_df = load_master_data()
     
 tab_edit, tab_add, tab_bulk = st.tabs(["Edit Existing", "Add New", "Bulk Upload"])
 

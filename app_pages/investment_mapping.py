@@ -1,3 +1,5 @@
+# Investment Mapping admin page with event-sourced audit trail
+# Co-authored with CoCo
 import streamlit as st
 import pandas as pd
 import json
@@ -57,7 +59,8 @@ def find_overlaps(df, investment, profit_center, gl_min, gl_max):
     ]
     return overlaps
 
-master_df = load_master_data()
+with st.spinner("Loading data..."):
+    master_df = load_master_data()
     
 tab_edit, tab_add, tab_bulk = st.tabs(["Edit Existing", "Add New", "Bulk Upload"])
 
